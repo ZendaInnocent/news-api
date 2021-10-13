@@ -11,7 +11,7 @@ git clone https://github.com/<username>/news-api.git
 
 cd news-api
 
-## Setup to run locally
+## Setup to run scraper locally
 
 ### Create virtual environment
 ```
@@ -55,3 +55,20 @@ scrapy crawl <spider-name>
 Spider names
 - ITV - itv
 - Dar24 - dar24
+
+
+## Setup to run API locally
+
+### Install the required packages
+
+```
+cd api
+pip install -r requirements.txt
+```
+
+### Run API
+```
+python main.py
+```
+
+The project will be available at http://127.0.0.1
