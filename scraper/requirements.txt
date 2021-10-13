@@ -2,3 +2,4 @@ scrapy
 beautifulsoup4
 python-decouple
 pymongo[srv]
+scrapyd
