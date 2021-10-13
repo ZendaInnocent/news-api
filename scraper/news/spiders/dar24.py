@@ -36,7 +36,7 @@ class Dar24Spider(scrapy.Spider):
                     'image_url': get_image_url(article),
                     'title': get_title(article),
                     'link': get_link(article),
+                    'source': 'dar24',
                 }
             except AttributeError:
                 pass
-

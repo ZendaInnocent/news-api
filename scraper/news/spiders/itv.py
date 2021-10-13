@@ -42,6 +42,7 @@ class ITVSpider(scrapy.Spider):
                     'title': get_title(views_row),
                     'link': f'https://www.itv.co.tz{get_link(views_row)}',
                     'excerpt': get_excerpt(views_row),
+                    'source': 'itv',
                 }
             except AttributeError:
                 pass

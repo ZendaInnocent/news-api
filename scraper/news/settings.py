@@ -7,6 +7,8 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+from decouple import config
+
 BOT_NAME = 'news'
 
 SPIDER_MODULES = ['news.spiders']
@@ -86,3 +88,16 @@ HTTPCACHE_ENABLED = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+ITEM_PIPELINES = {
+    'news.pipelines.MongoDBPipeline': 300,
+}
+
+# MongoDB connection string
+MONGO_DETAILS = config('MONGO_DETAILS', default='mongodb://127.0.0.1:27017')
+
+# name of the database
+MONGODB_DB = config('DB_NAME', default='news_api')
+
+# name of the collection
+MONGODB_COLLECTION = config('COLLECTION_NAME', default='news')
