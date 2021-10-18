@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from .routes import router
+
 description = """
 # News API consisting various sources from Tanzania.
 
@@ -29,6 +31,7 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
+app.include_router(router, tags=['News'], prefix='/news')
 
 @app.get('/', tags=['Root'])
 async def root():
