@@ -1,3 +1,6 @@
 fastapi[all]==0.68.1
 pymongo
 motor
+python-jose
+passlib
+bcrypt
