@@ -4,6 +4,7 @@ from decouple import config
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
+from fastapi_pagination import add_pagination
 
 from .auth import authenticate_user, get_password_hash
 from .database import database
@@ -79,3 +80,6 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     )
 
     return {'access_token': access_token, 'token_type': 'bearer'}
+
+
+add_pagination(app)
