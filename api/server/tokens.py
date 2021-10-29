@@ -9,7 +9,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='users/login')
 
 # openssl rand -hex 32
 SECRET_KEY = config('JWT_SECRET')
-ALGORITHM = config('JWT_ALGORITHM')
+ALGORITHM = config('JWT_ALGORITHM', default='HS256')
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 

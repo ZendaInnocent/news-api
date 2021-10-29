@@ -4,3 +4,5 @@ motor
 python-jose
 passlib
 bcrypt
+fastapi_pagination
+python-decouple

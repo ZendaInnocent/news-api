@@ -8,7 +8,7 @@ MONGODB_DB = config('DB_NAME', default='news_api')
 MONGODB_COLLECTION = config('COLLECTION_NAME', default='news')
 
 #  mongodb://<dbUser>:<dbUserPassword>@host:port
-MONGO_DETAILS = config('MONGO_DETAILS')
+MONGO_DETAILS = config('MONGO_DETAILS', default='mongodb://127.0.0.1:27017')
 
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 
@@ -32,4 +32,5 @@ def news_helper(news) -> dict:
         'title': news['title'],
         'link': news['link'],
         'image_url': news['image_url'],
+        'source': news['source'],
     }
