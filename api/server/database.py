@@ -17,10 +17,16 @@ database = client[MONGODB_DB]
 news_collection = database[MONGODB_COLLECTION]
 
 
-async def retrieve_news():
+async def retrieve_news(source: str = None):
     news_list = []
-    async for news in news_collection.find():
-        news_list.append(news_helper(news))
+
+    if source:
+        async for news in news_collection.find({'source': source}):
+            news_list.append(news_helper(news))
+    else:
+        async for news in news_collection.find():
+            news_list.append(news_helper(news))
+
     return news_list
 
 
