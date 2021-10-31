@@ -45,7 +45,11 @@ MONGO_DETAILS=mongodb://127.0.0.1:12707
 ```
 
 ## Scrawl a particular website
-ITV and Dar24 are sites with spiders available for now.
+Sites with spiders available for now.
+
+- ITV (https://itv.co.tz)
+- Dar24 (https://dar24.com)
+- MillardAyo (https://millardayo.com)
 
 ### To scrape
 ```
@@ -55,6 +59,7 @@ scrapy crawl <spider-name>
 Spider names
 - ITV - itv
 - Dar24 - dar24
+- MillardAyo - millardayo
 
 
 ## Setup to run API locally
