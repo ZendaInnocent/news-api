@@ -21,7 +21,7 @@ class Dar24Spider(scrapy.Spider):
     name = 'dar24'
 
     start_urls = [
-        'http://dar24.com/',
+        'https://dar24.com/',
     ]
 
     def parse(self, response, **kwargs):
