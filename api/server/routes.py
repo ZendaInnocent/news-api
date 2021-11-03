@@ -3,12 +3,13 @@ from fastapi_pagination import Page, Params, paginate
 
 from .database import retrieve_news
 from .models import ResponseModel
+from .tokens import oauth2_scheme
 
 router = APIRouter()
 
 
 @router.get('/', response_description='News retrieved', response_model=Page)
-async def get_news():
+async def get_news(token: str =Depends(oauth2_scheme)):
     news = await retrieve_news()
     if news:
         # return ResponseModel(news, 'News retrieved successfully')
@@ -17,7 +18,8 @@ async def get_news():
 
 
 @router.get('/{source}')
-async def get_source_news(source, params: Params = Depends()):
+async def get_source_news(source, params: Params = Depends(),
+                          token: str =Depends(oauth2_scheme)):
     news = await retrieve_news(source)
     if news:
         return paginate(news, params)
