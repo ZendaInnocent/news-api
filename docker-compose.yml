@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  api:
+    build: ./api
+    image: news_api
+    container_name: api
+    restart: unless-stopped
+    hostname: api
+
+  scraper:
+    build: ./scraper
+    image: scrapyd
+    restart: unless-stopped
+    hostname: scraper
+    container_name: scraper
+    ports:
+      - 6800:6800
+
+  mongodb:
+    image: mongo
+    restart: always
+    hostname: mongodb
+    container_name: mongodb
+    volumes:
+      - ./data/mongodb:/data/db
+    ports:
+      - 27017:27017
+
+networks:
+  default:
+    external:
+      name: suavetech-network
